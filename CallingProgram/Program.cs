@@ -18,7 +18,7 @@ public static partial class Program
         {
             WorkingDirectory = $"{ProjectRoot}/ExampleLibrary/",
             WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
-            FileName = @"C:\Program Files\dotnet\dotnet.exe",
+            FileName = "dotnet",
             Arguments = @"publish /p:NativeLib=Shared -r win-x64 -c Release"
         };
         process.Start();
