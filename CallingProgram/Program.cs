@@ -27,9 +27,14 @@ public static partial class Program
         Console.WriteLine("Build completed");
     }
     
-    // this imports the DLL built by BuildLibrary
+    // this imports the native_add function in the DLL built by BuildLibrary
     [LibraryImport($"{ProjectRoot}/ExampleLibrary/bin/Release/net7.0/win-x64/native/ExampleLibrary.dll", EntryPoint = "native_add")]
     private static partial int Add(int a, int b);
+    
+    // this imports the hello function in the DLL built by BuildLibrary
+    [LibraryImport($"{ProjectRoot}/ExampleLibrary/bin/Release/net7.0/win-x64/native/ExampleLibrary.dll",
+        EntryPoint = "hello")]
+    private static partial void Hello();
 
     public static void Main()
     {
@@ -39,5 +44,7 @@ public static partial class Program
         var num = Add(500, 36);
         
         Console.WriteLine(num);
+        
+        Hello();
     }
 }
